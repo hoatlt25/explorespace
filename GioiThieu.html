@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta
+    name="description"
+    content="Website khám phá hệ mặt trời với thông tin về Mặt Trời, các hành tinh, hình ảnh và hiệu ứng tương tác đẹp mắt.">
+    <meta
+    name="keywords"
+    content="
+    hệ mặt trời,
+    solar system,
+    hành tinh,
+    mặt trời,
+    trái đất,
+    sao hỏa,
+    khám phá vũ trụ,
+    astronomy
+">
+     <title>Du hành hệ mặt trời</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+       
+        /* mới thêm */
+        html{
+            scroll-behavior: smooth;
+        }
+        
+        body{
+            background: #121212; 
+            color: white;
+            overflow-x: hidden;
+        }
+        body{
+            background: #121212;
+            color: white;
+            overflow-x: hidden;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+/* Khi rời trang */
+        body.fade-out{
+            opacity: 0;
+        }
+
+        /* BACKGROUND VŨ TRỤ */
+        body::before{
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(rgba(15, 10, 30, 0.4), rgba(10, 5, 20, 0.5)),
+                url("/img/anhnenhemattroi.jpg"); 
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .container{
+            width: 100%;
+            min-height: 100vh;
+            padding: 20px 8%;
+        }
+
+        /* ================= PHẦN 1: HERO & MENU ================= */
+        /* mới thêm */
+        /* chưa có */
+        /* để thanh đứng yên trên đầu */
+        .hero-section {
+            min-height: 100vh;
+            position: relative;
+            padding-top: 80px; /* Thêm khoảng trống ở đầu để nhường chỗ cho menu */
+        }
+
+        nav {
+            position: absolute;
+            top: 30px;
+            right: 60px;
+            display: flex;
+            gap: 40px;
+            z-index: 100;   /* Luôn nằm trên cùng */
+            
+    
+          /* Giữ nền trong suốt */
+            background: transparent; 
+        }
+
+        /* thiếu logo */
+
+        nav ul{
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav ul li a{
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative; /* đã thêm */
+        }
+        /* bổ sung */
+
+        nav ul li a:hover{
+            color: #b6a9ff;
+        }
+
+
+        .hero{
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content{
+            max-width: 750px;
+        }
+
+        .hero h1{
+            font-size: 72px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p{
+            color: #d8d8d8;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* HIỆU ỨNG NÚT BẤM */
+        .btn {
+            display:inline-block;
+            padding:15px 40px;
+            border-radius:40px;
+            background: linear-gradient(90deg, #7264ff, #9d7dff);
+            color:white;
+            text-decoration:none;
+            font-weight: 600;
+            transition: 0.4s ease; /* hiệu ứng kéo dài 0.4 giây và ease là bắt đầu chậm → nhanh → chậm dần */
+            box-shadow: 0 0 20px rgba(100, 80, 200, 0.4);
+            border: 2px solid transparent; 
+        }
+
+        .btn:hover{
+            transform: translateY(-6px); 
+            border: 2px solid #00a8ff; 
+            background: linear-gradient(90deg, #4843b8, #715bd4); 
+            box-shadow: 0 10px 30px rgba(0, 168, 255, 0.6); 
+        }
+
+        /* NÚT MŨI TÊN CUỘN */
+        .scroll-down{
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 26px;
+            color: white;
+            text-decoration: none;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        .scroll-down:active{
+            opacity: 0.5; /* nhạt đi */
+           transform: translateX(-50%) scale(0.9);
+        }
+
+        @keyframes bounce{
+            0%,100%{ transform: translateX(-50%) translateY(0); }
+            50%{ transform: translateX(-50%) translateY(-10px); }
+        }
+
+
+        /* = PHẦN HỆ MẶT TRỜI = */
+        .info-section{
+            padding:30px 8%;
+            background: rgba(10, 5, 30, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .info-header{ 
+            text-align:center; 
+            margin-bottom:50px; 
+        }
+        .info-header h2 {
+            font-size: 40px; 
+            letter-spacing: 5px; 
+         
+            margin-bottom: 10px; 
+        }
+        .info-header p{ 
+            opacity:0.8; 
+            font-size:1.1rem; 
+        }
+
+        .info-main {
+            display: grid;
+            grid-template-columns: auto 1fr; /* auto để khi có đổi kích thước ảnh thì bên phải chứa nội dung vẫn lun căn chỉnh hợp lý với bố cục */
+            gap: 100px; /* Khoảng cách giữa ảnh và chữ */
+            max-width: 1200px; /* Giới hạn độ rộng của nội dung */
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .info-image-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 3px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 1px;
+            width: fit-content; /* vừa khít ảnh */
+        }
+        .info-image-box img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+        .info-side-list{ 
+            display:flex; 
+            flex-direction:column; 
+            gap: 30px; 
+        }
+        .info-box-item{ 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 20px; }
+        
+        .info-icon{
+            width: 55px; 
+            height: 55px; 
+            border-radius:50%;
+            background: rgba(157, 124, 253, 0.15);
+            border: 1px solid #9d7cfd;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            color: #9d7cfd; 
+            font-size: 1.4rem; 
+            flex-shrink: 0;
+        }
+
+        .info-box-text h4{ 
+            color: #9d7cfd; 
+            text-transform: uppercase; 
+            margin-bottom: 5px; 
+            font-size: 0.9rem; }
+        .info-box-text p { 
+            font-size: 0.9rem; 
+            opacity: 0.8; 
+            line-height: 1.5; 
+        }
+
+        .info-bottom-grid{
+            display:grid;
+            grid-template-columns:repeat(4, 1fr);
+            gap:30px;
+            border-top:1px solid rgba(255,255,255,0.1);
+            padding-top: 50px;
+        }
+        .info-card-stat { 
+            text-align: center; 
+        }
+        .info-card-stat i { 
+            font-size: 2rem; 
+            color: #9d7cfd; 
+            margin-bottom: 15px; 
+            display: block; 
+        }
+        .info-card-stat h5 { 
+            margin-bottom: 10px; 
+            text-transform: uppercase; 
+            font-size: 0.9rem; }
+        .info-card-stat p { 
+            font-size: 0.85rem; 
+            opacity: 0.7; }
+
+
+
+        /* = DANH SÁCH 9 HÀNH TINH = */
+        .planets-section {  /*khu vực tổng cho trang hành tinh */
+            padding: 100px 8%;
+            min-height: 100vh;
+        }
+
+        .section-title {  /* tiêu đề giống hero h1 */ 
+            text-align: center;
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 60px;
+        }
+        .planet-grid {   /* giống .planet-list */
+            display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 150px; /* Tăng khoảng cách các khung */
+            max-width:1500px; /* Giới hạn chiều rộng để không bị bè ra */
+            margin: 0 auto; /* Canh giữa khối */
+        }
+
+        .planet-card {  /* giống card */
+            background: rgba(25, 15, 45, 0.6); 
+            border-radius: 16px;
+            padding: 25px 20px; /* Ép viền sát nội dung hơn */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .planet-card:hover {  /* giống card:hover */
+            transform: translateY(-10px);
+            background: rgba(35, 20, 60, 0.8);
+        }
+
+        .planet-card img {  /* giống card img */
+            width: 150px; /* Thu nhỏ ảnh */
+            height: 150px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 15px;
+
+        
+        }
+
+        .planet-card h3 {   /* tên các hành tinh */
+            font-size: 20px; /* Thu nhỏ chữ tiêu đề */
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .planet-card .subtitle {
+            font-size: 12px; /* Thu nhỏ mô tả */
+            color: #aaa;
+            margin-bottom: 15px;
+            min-height: 36px; 
+        }
+
+        .planet-card hr {  /* đường kẻ chưa có CSS kia */
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 12px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px; /* Thu nhỏ thông số */
+            margin-bottom: 8px;
+        }
+
+        .stat-row span:first-child {
+            color: #aaa;
+        }
+
+        .stat-row span:last-child {
+            font-weight: 500;
+            color: #eee;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+.footer{
+    position: relative;
+
+    margin-top: 120px;
+
+    padding: 70px 8% 30px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(15,5,30,0.4),
+            rgba(5,2,10,0.97)
+        );
+
+    border-top:
+        1px solid rgba(177,151,252,0.15);
+
+    backdrop-filter: blur(10px);
+
+    overflow: hidden;
+}
+
+/* Glow line */
+.footer::before{
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #9d7dff,
+            transparent
+        );
+
+    box-shadow: 0 0 20px #9d7dff;
+}
+
+.footer-content{
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 80px;
+
+    flex-wrap: wrap;
+}
+
+.footer-about{
+    max-width: 400px;
+}
+
+.footer-about h2{
+    font-size: 26px;
+
+    margin-bottom: 18px;
+
+    letter-spacing: 2px;
+}
+
+.footer-about p{
+    color: #aaa;
+
+    line-height: 1.8;
+}
+
+.space-quote{
+    margin-top: 18px;
+
+    color: #777;
+
+    font-style: italic;
+}
+
+.footer-links{
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.footer-links h3{
+    color: #b197fc;
+
+    margin-bottom: 10px;
+
+    font-size: 20px;
+}
+
+.footer-links a{
+    text-decoration: none;
+
+    color: #bbb;
+
+    transition: 0.3s;
+}
+
+.footer-links a:hover{
+    color: white;
+
+    transform: translateX(5px);
+}
+
+.socials{
+    display: flex;
+
+    gap: 18px;
+
+    margin-top: 25px;
+}
+
+.socials a{
+    color: #aaa;
+
+    font-size: 22px;
+
+    transition: 0.3s;
+}
+
+.socials a:hover{
+    color: #b197fc;
+
+    transform: translateY(-5px);
+}
+
+.footer-bottom{
+    margin-top: 60px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.08);
+
+    text-align: center;
+
+    color: #777;
+}
+
+.tech{
+    margin-top: 8px;
+
+    font-size: 14px;
+
+    color: #666;
+}
+
+/* BACK TO TOP */
+
+.back-to-top{
+    position: fixed;
+
+    right: 30px;
+    bottom: 30px;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(177,151,252,0.15);
+
+    border:
+        1px solid rgba(177,151,252,0.35);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 22px;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+
+    z-index: 999;
+}
+
+.back-to-top:hover{
+    background: #b197fc;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 0 20px rgba(177,151,252,0.6);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px){
+
+    .footer-content{
+        flex-direction: column;
+    }
+
+    .footer-about h2{
+        font-size: 22px;
+    }
+
+}   
+
+/*==============================*/
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+
+@media (max-width: 1024px){
+
+    .container{
+        padding: 20px 5%;
+    }
+
+    nav{
+        right: 30px;
+        gap: 20px;
+    }
+
+    nav ul{
+        gap: 20px;
+    }
+
+    .hero h1{
+        font-size: 56px;
+    }
+
+    .hero p{
+        font-size: 16px;
+    }
+
+    .info-main{
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .info-image-box img{
+        width: 100%;
+        height: auto;
+    }
+
+    .info-bottom-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .planet-grid{
+        grid-template-columns: repeat(2,1fr);
+        gap: 60px;
+    }
+
+    .footer-content{
+        gap: 40px;
+    }
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media (max-width: 768px){
+
+    body{
+        overflow-x: hidden;
+    }
+
+    .container{
+        padding: 15px 5%;
+    }
+
+    /* NAVBAR */
+
+    nav{
+        position: relative;
+        top: 0;
+        right: 0;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    nav ul{
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li a{
+        font-size: 14px;
+    }
+
+    /* HERO */
+
+    .hero{
+        min-height: 75vh;
+    }
+
+    .hero h1{
+        font-size: 40px;
+        line-height: 1.2;
+    }
+
+    .hero p{
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .btn{
+        padding: 13px 28px;
+        font-size: 14px;
+    }
+
+    /* INFO */
+
+    .info-section{
+        padding: 70px 5%;
+    }
+
+    .info-header h2{
+        font-size: 30px;
+    }
+
+    .info-header p{
+        font-size: 15px;
+    }
+
+    .info-main{
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .info-image-box{
+        width: 100%;
+    }
+
+    .info-image-box img{
+        width: 100%;
+        height: auto;
+    }
+
+    .info-side-list{
+        gap: 25px;
+    }
+
+    .info-box-item{
+        gap: 15px;
+    }
+
+    .info-icon{
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+
+    .info-bottom-grid{
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    /* PLANETS */
+
+    .planets-section{
+        padding: 80px 5%;
+    }
+
+    .section-title{
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .planet-grid{
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .planet-card{
+        padding: 22px 18px;
+    }
+
+    .planet-card img{
+        width: 120px;
+        height: 120px;
+    }
+
+    .planet-card h3{
+        font-size: 18px;
+    }
+
+    .planet-card .subtitle{
+        font-size: 12px;
+    }
+
+    .stat-row{
+        font-size: 11px;
+    }
+
+    /* FOOTER */
+
+    .footer{
+        padding: 60px 5% 25px;
+    }
+
+    .footer-content{
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-about{
+        max-width: 100%;
+    }
+
+    .footer-about h2{
+        font-size: 22px;
+    }
+
+    .footer-links h3{
+        font-size: 18px;
+    }
+
+    .footer-bottom{
+        margin-top: 40px;
+    }
+
+    /* BACK TO TOP */
+
+    .back-to-top{
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+/* =========================
+   RESPONSIVE SMALL MOBILE
+========================= */
+
+@media (max-width: 480px){
+
+    .hero h1{
+        font-size: 32px;
+    }
+
+    .hero p{
+        font-size: 14px;
+    }
+
+    .section-title{
+        font-size: 28px;
+    }
+
+    .planet-card img{
+        width: 100px;
+        height: 100px;
+    }
+
+    .planet-card{
+        padding: 18px 15px;
+    }
+
+    .info-header h2{
+        font-size: 26px;
+    }
+
+    .footer{
+        padding: 50px 5% 20px;
+    }
+
+    .footer-about h2{
+        font-size: 20px;
+    }
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="hero-section container" id="home">
+        <nav>
+            
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#explore-planets">Hành tinh</a></li>
+                <li> <a href="/planet.html" class="page-transition">Khám phá </a></li>
+            </ul>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Du hành hệ mặt trời</h1>
+                <p>Khám phá những hành tinh kỳ diệu — từ thế giới gần Mặt Trời đến những vùng xa xôi lạnh giá, mỗi hành tinh đều ẩn chứa những bí ẩn đang chờ bạn khám phá</p>
+                <a href="/planet.html" class="btn page-transition">Bắt đầu khám phá</a>
+            </div>
+        </div>
+        <a class="scroll-down" onclick="document.getElementById('info-overview').scrollIntoView({behavior:'smooth'});">↓</a>
+    </div>
+
+
+
+    <section class="info-section" id="info-overview">
+        <div class="info-header">
+
+            <h2>HỆ MẶT TRỜI</h2>
+            <p>Thông tin cơ bản </p>
+        </div>
+
+        <div class="info-main">
+            <div class="info-image-box">
+                <img   src="/img/anh9hanhtinh.jpg" alt="Toàn cảnh hệ mặt trời">
+            </div>
+
+            <div class="info-side-list">
+                <div class="info-box-item">
+                    <div class="info-icon"><i class="fas fa-bullseye"></i></div>
+                    <div class="info-box-text">
+                        <h4>Hình thành</h4>
+                        <p>Khoảng 4,6 tỷ năm trước, một đám mây khí và bụi trong Dải Ngân Hà đã co lại dưới tác dụng của lực hấp dẫn, từ đó hình thành nên Hệ Mặt Trời.</p>
+                    </div>
+                </div>
+                <div class="info-item info-box-item">
+                    <div class="info-icon"><i class="far fa-clock"></i>
+                    </div>
+                    <div class="info-box-text">
+                        <h4>Kích thước</h4>
+                        <p>Hệ Mặt Trời có phạm vi rất rộng, trải dài hàng tỷ kilômét, bao gồm cả các vùng xa như vành đai Kuiper và đám mây Oort – nơi chứa nhiều sao chổi và thiên thể băng giá.</p>
+                    </div>
+                </div>
+                <div class="info-item info-box-item">
+                    <div class="info-icon"><i class="fas fa-location-dot"></i></div>
+
+                    <div class="info-box-text">
+                        <h4>Vị trí</h4>
+                        <p>Hệ Mặt Trời nằm trong Dải Ngân Hà, thuộc nhánh Orion, cách trung tâm thiên hà khoảng 26.000 năm ánh sáng.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-bottom-grid">
+            <div class="info-card-stat">
+                <i class="fas fa-sun">
+                </i>
+                <h5>Trung tâm</h5>
+                <p>Mặt Trời là ngôi sao nằm ở trung tâm Hệ Mặt Trời, chiếm khoảng 99,8% tổng khối lượng của toàn hệ.
+                </p>
+            </div>
+            <div class="info-card-stat">
+                <i class="fas fa-atom"></i>
+                <h5>Thành phần
+                </h5>
+                <p>Hệ Mặt Trời gồm 8 hành tinh, hàng trăm vệ tinh tự nhiên, cùng hàng triệu tiểu hành tinh, sao chổi và các thiên thể nhỏ khác.
+                </p>
+            </div>
+            <div class="info-card-stat">
+                <i class="fas fa-arrows-spin"></i>
+                <h5>Chuyển động</h5>
+                <p>Các thiên thể trong Hệ Mặt Trời chuyển động quanh Mặt Trời theo quỹ đạo hình elip.</p>
+            </div>
+            <div class="info-card-stat">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <h5>Điều kỳ diệu</h5>
+                <p>Điều kỳ diệu của Hệ Mặt Trời là cho đến nay, chỉ có Trái Đất được biết đến là nơi có sự sống hình thành và phát triển.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="planets-section" id="explore-planets">
+        <h2 class="section-title">Các hành tinh</h2>
+        
+        <div class="planet-grid">
+             <!-- onclick thêm vào sau  -->
+            <div class="planet-card">  
+                <!-- onclick thêm vào sau  -->
+                <img src="/img/sunCatP.png" alt="Mặt trời">
+                <h3>Mặt trời</h3>
+                <p class="subtitle">Ngôi sao trung tâm của hệ Mặt Trời</p>
+                <hr>
+                <div class="stat-row"><span>Nhiệt độ bề mặt:</span>
+                    <span>~5,500°C</span>
+                </div>
+                <div class="stat-row"><span>Thành phần chính:
+                </span><span>Hydro & Heli</span></div>
+                <div class="stat-row"><span>Tuổi:</span>
+                    <span>khoảng 4.6 tỷ năm</span></div>
+            </div>
+            <div class="planet-card">
+
+                <img src="/img/saothuy.png" alt="Sao Thủy">
+                <h3>Sao Thủy  </h3>
+                <p class="subtitle">Hành tinh nhỏ bé gần Mặt Trời nhất</p>
+                <hr>
+                <div class="stat-row">
+                    <span>Khoảng cách:</span>
+
+                    <span>57.9 triệu km</span>
+
+                </div>
+
+                <div class="stat-row">
+                    <span>Mặt trăng:</span>
+                    <span>0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Đường kính:</span>
+                    <span>4,879 km</span>
+                </div>
+            </div>
+            <div class="planet-card">
+                <img  src="/img/saokim.png" alt="Sao Kim">
+                <h3> Sao Kim   </h3>
+                <p class="subtitle">Hành tinh nóng nhất hệ Mặt Trời</p>
+                <hr>
+                <div class="stat-row"><span>Khoảng cách:</span>
+                    <span>108.2 triệu km</span>
+                </div>
+                <div class="stat-row">
+                    <span>Mặt trăng:</span>
+                    <span>0</span></div>
+                <div class="stat-row">
+                    <span>Đường kính:</span>
+                    <span>12,104 km</span>
+                </div>
+            </div>
+            <div class="planet-card">
+                <img src="/img/TraiĐấtCatP.png" alt="Trái Đất">
+                <h3>Trái Đất</h3>
+                <p class="subtitle">Hành tinh xanh – nơi sự sống tồn tại</p>
+                <hr>
+                <div class="stat-row">
+                    <span>Khoảng cách:</span>
+                    <span>149.6 triệu km</span>
+                </div>
+                <div class="stat-row"><span>Mặt trăng:</span>
+                    <span>1</span></div>
+                <div class="stat-row">
+                    <span>Đường kính:</span>
+                    <span>12,742 km</span>
+                </div>
+            </div>
+
+
+
+            <div class="planet-card">
+                <img src="/img/saohoa.png" alt="Sao Hỏa">
+                <h3>Sao Hỏa</h3>
+                <p class="subtitle">Hành tinh Đỏ với những ngọn núi lửa khổng lồ</p>
+                <hr>
+
+
+                <div class="stat-row">
+                    <span>Khoảng cách:</span>
+                    <span>227.9 triệu km</span>
+                </div>
+                <div class="stat-row">
+                    <span>Mặt trăng:</span>
+                    <span>2</span>
+                </div>
+                <div class="stat-row">
+                    <span>Đường kính:</span>
+                    <span>6,779 km</span></div>
+            </div>
+            <div   class="planet-card">
+                <img  src="/img/saomoc.png" alt="Sao Mộc">
+                <h3>Sao Mộc</h3>
+                <p class="subtitle">Hành tinh khí khổng lồ lớn nhất hệ
+                </p>
+                <hr>
+                <div class="stat-row">
+                    <span>Khoảng cách:</span>
+                    <span>778.5 triệu km</span>
+                </div>
+                <div class="stat-row">
+                    <span>Mặt trăng:</span>
+                    <span>95+</span></div>
+                <div class="stat-row">
+                    <span>Đường kính:</span>
+                    <span>139,820 km</span>
+
+                </div>
+            </div>
+            <div class="planet-card">
+                <img src="/img/saotho.png" alt="Sao Thổ">
+                <h3>Sao Thổ  </h3>
+                <p class="subtitle">Hành tinh nổi bật với vành đai lộng lẫy</p>
+                <hr>
+                <div class="stat-row">
+                    <span>Khoảng cách:</span>
+                    <span>1.43 tỷ km</span>
+                </div>
+                <div class="stat-row">
+                    <span>Mặt trăng:</span>
+                    <span>274</span>
+                </div>
+                <div class="stat-row">
+                    <span>Đường kính:</span>
+                    <span>116,460 km</span></div>
+            </div>
+            <div class="planet-card">
+                <img src="/img/thienvuong.png" alt="Sao Thiên Vương">
+                <h3> Sao Thiên Vương</h3>
+                <p class="subtitle">Hành tinh băng khổng lồ quay nghiêng</p>
+
+                <hr>
+                <div class="stat-row">
+                    <span>Khoảng cách:</span>
+                    <span>2.87 tỷ km</span></div>
+                <div class="stat-row">
+                    <span>Mặt trăng:</span>
+                    <span>27</span>
+                </div>
+                <div class="stat-row">
+                    <span>Đường kính:</span>
+                    <span>50,724 km</span>
+                </div>
+            </div>
+            <div class="planet-card">
+                <img  src="/img/haivuong.png" alt="Sao Hải Vương">
+                <h3>Sao Hải Vương  </h3>
+                <p class="subtitle"> Hành tinh xa xôi và nhiều gió bão nhất</p>
+                <hr>
+                <div class="stat-row"> 
+                    <span>Khoảng cách:</span>
+                    <span>4.5 tỷ km</span></div>
+                <div class="stat-row">
+                    <span>Mặt trăng:</span><span>14</span></div>
+                <div class="stat-row">
+                    <span>Đường kính:</span>
+                    <span>49,244 km</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+
+    <div class="footer-content">
+
+        <!-- LEFT -->
+        <div class="footer-about">
+
+            <h2>KHÁM PHÁ HỆ MẶT TRỜI</h2>
+
+            <p>
+                Hành trình khám phá những bí ẩn của vũ trụ,
+                từ Mặt Trời rực cháy đến những hành tinh xa xôi
+                lạnh giá ngoài không gian.
+            </p>
+
+            <p class="space-quote">
+                “Somewhere, something incredible is waiting to be known.”
+            </p>
+
+            <div class="socials">
+
+                <a href="https://github.com/" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://www.youtube.com/" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+
+                <a href="https://www.facebook.com/" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CENTER -->
+        <div class="footer-links">
+
+            <h3>Khám phá</h3>
+
+            <a href="#home">Trang chủ</a>
+
+            <a href="#info-overview">Hệ Mặt Trời</a>
+
+            <a href="#explore-planets">Các hành tinh</a>
+
+            <a href="/planet.html">Du hành vũ trụ</a>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="footer-links">
+
+            <h3>Nguồn tham khảo</h3>
+
+            <a href="https://www.nasa.gov/" target="_blank">
+                NASA
+            </a>
+
+            <a href="https://solarsystem.nasa.gov/" target="_blank">
+                NASA Solar System
+            </a>
+
+            <a href="https://science.nasa.gov/" target="_blank">
+                NASA Science
+            </a>
+
+            <a href="https://vi.wikipedia.org/wiki/H%E1%BB%87_M%E1%BA%B7t_Tr%E1%BB%9Di" target="_blank">
+                Wikipedia
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 HOH • Solar System Exploration
+        </p>
+
+        <p class="tech">
+            Built with HTML • CSS • JavaScript
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- BACK TO TOP -->
+<a href="#home" class="back-to-top">
+    ↑
+</a>
+
+
+    <script>
+
+const links = document.querySelectorAll(".page-transition");
+
+links.forEach(link => {
+
+    link.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        const target = this.href;
+
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+
+            window.location.href = target;
+
+        }, 500);
+
+    });
+
+});
+
+</script>
+</body>
+</html>

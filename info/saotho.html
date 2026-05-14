@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khám Phá Sao Thổ</title>
+    <link rel="stylesheet" href="/hemattroi.css">
+    <!-- Thêm Be Vietnam Pro vào đây -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700;800&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+         /* Ép font chữ Be Vietnam Pro cho toàn bộ trang */
+    * {
+        font-family: 'Be Vietnam Pro', sans-serif !important;
+    }
+
+    /* Khung chứa ảnh */
+    .img-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    /* Tùy chỉnh hình ảnh Sao Thổ đứng yên */
+    .sun-main-img {
+        width: 100%;
+        max-width: 550px;
+        height: auto;
+        
+        /* Loại bỏ hoàn toàn hiệu ứng xoay */
+        animation: none !important; 
+        transform: rotate(-15deg); /* Nghiêng nhẹ trục hành tinh cho đẹp và giống thực tế */
+        
+        /* Hiệu ứng hào quang và độ sáng */
+        filter: drop-shadow(0 0 50px rgba(180, 160, 120, 0.3)) brightness(1.05) !important;
+        transition: transform 0.5s ease; /* Hiệu ứng mượt khi di chuột vào */
+    }
+
+    /* Hiệu ứng nhỏ: khi di chuột vào ảnh sẽ hơi nhích nhẹ lên tạo cảm giác sống động */
+    .sun-main-img:hover {
+        transform: rotate(-10deg) translateY(-10px);
+    }
+        /* Tùy chỉnh thêm cho menu dropdown (Hành tinh khác) để trông đẹp hơn */
+        details {
+            position: relative;
+            cursor: pointer;
+        }
+        details summary {
+            list-style: none;
+            color: #b197fc;
+            font-weight: 600;
+        }
+        details ul {
+            position: absolute;
+            background: rgba(20, 10, 30, 0.95);
+            padding: 15px !important;
+            border-radius: 10px;
+            border: 1px solid rgba(177, 151, 252, 0.2);
+            flex-direction: column !important;
+            gap: 10px !important;
+            top: 30px;
+            right: 0;
+            width: 180px;
+            z-index: 100;
+        }
+        details ul li a {
+            font-size: 13px !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <a id="backBtn" class="back-btn">← QUAY LẠI</a>
+            <ul>
+                 <li><a href="/GioiThieu.html">Trang chủ</a></li>
+				<li><a href="/GioiThieu.html#explore-planets">Hành tinh</a></li>
+                <li><a href="/planet.html">Khám phá</a></li>
+            </ul>
+        </nav>
+
+        <!-- SECTION 1: INTRODUCTION -->
+        <section id="introduction" class="hero-section">
+            <div class="left-col">
+                <div class="img-wrapper">
+                    <img src="/img/saotho.png" alt="Sun" class="sun-main-img">
+                </div>
+                <p class="sun-label">SATURN / THỔ</p>
+            </div>
+            <div class="right-col">
+                <h1 class="main-title">Sao Thổ</h1>
+                <hr class="divider">
+                <p class="intro-text">
+                    <b>Sao Thổ</b> hay <b>Thổ Tinh</b> (土星),là hành tinh thứ sáu tính theo khoảng cách trung bình từ Mặt Trời  
+                </p>
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <span>Khoảng cách đến Mặt trời</span>
+                        <p>~1,4 tỷ km (10,1 AU)</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Các section còn lại giữ nguyên cấu trúc cũ -->
+        <section id="specifications" class="content-section">
+            <h2 class="section-title">Thông số Kỹ thuật</h2>
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <h3>Đường kính</h3>
+                    <p> 120.500 - 120.660 km</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Bán kính</h3>
+                    <p> 60.268 km</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Khối lượng</h3>
+                    <p> 5,6846×10<sup>26</sup> kg   <br><small>(khoảng 95,152 Trái Đất)</small></p>
+                </div>
+                <div class="spec-card">
+                    <h3>Diện tích bề mặt</h3>
+                    <p> 4,27×10<sup>10</sup> km² <br><small>(khoảng 83,703 Trái Đất)</small></p>
+                </div>
+                <div class="spec-card">
+                    <h3>Thể tích</h3>
+                    <p>8,2713×10 <sup>14</sup> km³ <br><small>(khoảng 763,59 Trái Đất)</small></p>
+                </div>
+               
+            </div>
+        </section>
+
+        <section id="rotation" class="content-section alternate">
+            <h2 class="section-title">Chuyển động & Thời gian</h2>
+            <div class="info-box">
+                <div class="info-content">
+                    <h3>Thời gian quay</h3>
+                    <p>
+                     Sao Thổ mất khoảng 29,5 năm Trái Đất (hay khoảng 10.759 ngày) để hoàn thành một vòng quỹ đạo quanh Mặt Trời
+					</p>
+                </div>
+                <div class="info-content">
+                    <h3>Tự quay quanh trục</h3>
+                    <p>
+					 Sao Thổ quay quanh trục rất nhanh, một ngày (ngày đêm) kéo dài khoảng 10 giờ 32 phút đến 10 giờ 40 phút
+					</p>
+                   
+				</div>
+            </div>
+        </section>
+
+        <section id="fun-facts" class="content-section">
+            <h2 class="section-title">Sự thật thú vị</h2>
+            <div class="facts-container">
+                <div class="fact-item">
+                 
+                    <p>
+					Có thể nổi trên nước: Mật độ trung bình của Sao Thổ thấp hơn nước. Nếu bạn tìm được một bồn tắm đủ lớn, Sao Thổ sẽ nổi trên bề mặt
+					</p>
+                </div>
+                <div class="fact-item">
+                 
+                    <p>
+					"Thùng rác" khổng lồ: Nó to lớn đến mức có thể chứa hơn 1.300 Trái Đất bên trong.
+					</p>
+                </div>
+                <div class="fact-item">
+                  
+                    <p>
+					Vành đai là ảo ảnh "siêu mỏng": Vành đai Sao Thổ trải rộng hàng trăm nghìn km nhưng độ dày trung bình chỉ khoảng 10 mét. Chúng được cấu tạo chủ yếu từ băng và đá
+					</p>
+                </div>
+                <div class="fact-item">
+          
+                    <p>
+					Hành tinh xa nhất nhìn thấy bằng mắt thường: Bạn có thể nhìn thấy Sao Thổ màu vàng nhạt bằng mắt thường từ Trái Đất, nhưng tốt nhất vẫn là qua kính thiên văn.
+					</p>
+                </div>
+				<div class="fact-item">
+          
+                    <p>
+					Vua của các mặt trăng: Sao Thổ hiện có 146 mặt trăng được công nhận, nhiều nhất trong hệ Mặt Trời, vượt qua Sao Mộc. Mặt trăng lớn nhất, Titan, thậm chí còn lớn hơn cả sao Thủy
+					</p>
+                </div>
+				<div class="fact-item">
+          
+                    <p>
+					Một năm rất dài: Sao Thổ mất khoảng 29,5 năm Trái Đất để hoàn thành một vòng quay quanh Mặt Trời.
+					</p>
+                </div>
+            </div>
+        </section>
+         </div>
+
+         <!-- ================= KHÁM PHÁ THÊM ================= -->
+
+<section class="explore-more">
+
+    <h2>Khám phá thêm</h2>
+
+    <div class="explore-grid">
+
+        <a href="/planet.html" class="explore-card">
+
+            <h3>Du hành các hành tinh</h3>
+
+            <p>
+                Khám phá toàn bộ hệ mặt trời với hiệu ứng tương tác,
+                chuyển động và thông tin chi tiết về từng hành tinh.
+            </p>
+
+        </a>
+
+        <a href="https://science.nasa.gov/" target="_blank" class="explore-card">
+
+            <h3>NASA Science</h3>
+
+            <p>
+                Cập nhật các nghiên cứu khoa học, sứ mệnh không gian
+                và khám phá mới nhất từ NASA.
+            </p>
+
+        </a>
+
+        <a href="https://eyes.nasa.gov/" target="_blank" class="explore-card">
+
+            <h3>NASA Eyes</h3>
+
+            <p>
+                Trải nghiệm mô phỏng 3D hệ mặt trời cực kỳ chân thực
+                và trực quan từ NASA.
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-content">
+
+            <!-- LEFT -->
+
+            <div class="footer-about">
+
+                <h2>KHÁM PHÁ HỆ MẶT TRỜI</h2>
+
+                <p>
+                    Hành trình khám phá những bí ẩn của vũ trụ,
+                    từ Mặt Trời rực cháy đến những hành tinh xa xôi
+                    lạnh giá ngoài không gian.
+                </p>
+
+                <p class="space-quote">
+                    “Somewhere, something incredible is waiting to be known.”
+                </p>
+
+                <div class="socials">
+
+                    <a href="https://github.com/" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- CENTER -->
+
+            <div class="footer-links">
+
+                <h3>Khám phá</h3>
+
+                <a href="/GioiThieu.html">Trang chủ</a>
+
+                <a href="/planet.html">Hệ Mặt Trời</a>
+
+                <a href="/planet.html">Các hành tinh</a>
+
+                <a href="/planet.html">Du hành vũ trụ</a>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="footer-links">
+
+                <h3>Nguồn tham khảo</h3>
+
+                <a href="https://www.nasa.gov/" target="_blank">
+                    NASA
+                </a>
+
+                <a href="https://solarsystem.nasa.gov/" target="_blank">
+                    NASA Solar System
+                </a>
+
+                <a href="https://science.nasa.gov/" target="_blank">
+                    NASA Science
+                </a>
+
+                <a href="https://vi.wikipedia.org/wiki/H%E1%BB%87_M%E1%BA%B7t_Tr%E1%BB%9Di" target="_blank">
+                    Wikipedia
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- BOTTOM -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 HOH • Solar System Exploration
+            </p>
+
+            <p class="tech">
+                Built with HTML • CSS • JavaScript
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- SAO NỀN -->
+
+<div class="stars"></div>
+
+
+<!-- SCROLL REVEAL -->
+
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<script>
+
+ScrollReveal().reveal(
+'.spec-card, .fact-item, .info-content, .explore-card',
+{
+    distance:'40px',
+    duration:1200,
+    easing:'ease',
+    origin:'bottom',
+    interval:150
+}
+);
+
+</script>
+<script>
+
+    const params = new URLSearchParams(window.location.search);
+
+    const planetIndex = params.get("planet");
+
+    document.getElementById("backBtn").href =
+        "../planet.html?planet=" + planetIndex;
+
+</script>
+</body>
+</html>

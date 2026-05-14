@@ -1,0 +1,446 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Poppins", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #000;
+    color: white;
+    overflow: hidden;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: 100%;
+    height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(120, 80, 255, 0.18),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at bottom,
+            rgba(0, 120, 255, 0.12),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #090312 0%,
+            #12051f 35%,
+            #07030d 70%,
+            #020104 100%
+        );
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* SAO NỀN */
+
+.container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,0.9) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    opacity: 0.22;
+
+    pointer-events: none;
+}
+
+/* GLOW OVERLAY */
+
+.container::after{
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(157,125,255,0.08),
+            transparent 60%
+        );
+
+    pointer-events: none;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: absolute;
+    top: 30px;
+    right: 60px;
+
+    display: flex;
+    gap: 40px;
+
+    z-index: 100;
+}
+
+.navbar a {
+    color: rgb(168, 165, 165);
+
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    color: white;
+}
+
+/* ================= CONTENT ================= */
+
+.content {
+    text-align: center;
+    width: 100%;
+    padding-top: 80px;
+    z-index: 10;
+}
+
+.content h1 {
+    font-size: 90px;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+/* ================= INFO BOARD ================= */
+
+.info {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 30px;
+}
+
+.info span {
+    font-size: 16px;
+    font-weight: bold;
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #cbbdff;
+}
+
+.info h1{
+    font-weight: 300;
+    font-size: larger;
+}
+
+.info h3 {
+    font-weight: 300;
+    font-size: 14px;
+
+    color: #ddd;
+
+    min-width: 130px;
+}
+
+/* ================= MAIN PLANET ================= */
+
+.main-planet-container {
+    position: absolute;
+
+    bottom: -600px;
+
+    left: 45%;
+
+    transform: translateX(-50%);
+
+    z-index: 1;
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+.main-planet {
+    width: 1250px;
+    height: 1250px;
+
+    object-fit: contain;
+
+    transition: all 0.5s ease;
+
+    padding-right: 10px;
+}
+
+/* ================= SIDE PLANETS ================= */
+
+.side {
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    opacity: 0.8;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    object-fit: contain;
+    object-position: center;
+
+    animation: floatingSide 5s ease-in-out infinite;
+}
+
+.left {
+    left: -300px;
+
+    filter:
+        brightness(0.6)
+        grayscale(20%);
+}
+
+.right {
+    right: -250px;
+
+    filter:
+        brightness(0.6)
+        grayscale(20%);
+}
+
+/* ================= BUTTON NAV ================= */
+
+.btn-nav {
+    position: absolute;
+
+    top: 0;
+
+    width: 15%;
+    height: 100%;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    z-index: 110;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes rotateSun {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translate(-50%, 0px);
+    }
+
+    50% {
+        transform: translate(-50%, -20px);
+    }
+
+    100% {
+        transform: translate(-50%, 0px);
+    }
+}
+
+@keyframes floatingSide {
+    0% {
+        transform: translateY(-50%) translateX(0px);
+    }
+
+    50% {
+        transform: translateY(-55%) translateX(0px);
+    }
+
+    100% {
+        transform: translateY(-50%) translateX(0px);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+        top: 15px;
+        right: 15px;
+
+        gap: 15px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    /* CONTENT */
+
+    .content {
+        padding-top: 60px;
+        text-align: center;
+    }
+
+    .content h1 {
+        font-size: 36px;
+
+        margin-bottom: 25px;
+
+        letter-spacing: normal;
+    }
+
+    /* INFO */
+
+    .info {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 20px;
+
+        padding: 0 15px;
+
+        margin-bottom: 30px;
+    }
+
+    .info div {
+        border:
+            1px solid rgba(255, 255, 255, 0.1);
+
+        padding: 10px;
+
+        border-radius: 8px;
+
+        background:
+            rgba(255, 255, 255, 0.03);
+    }
+
+    .info span {
+        font-size: 11px;
+        color: #aaa;
+    }
+
+    .info h3 {
+        font-size: 13px;
+
+        min-width: unset;
+
+        margin-top: 4px;
+
+        color: white;
+    }
+
+    /* MAIN PLANET */
+
+    .main-planet-container {
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        bottom: unset;
+        left: unset;
+
+        transform: unset;
+
+        margin-top: 20px;
+
+        width: 100%;
+        height: auto;
+    }
+
+    .main-planet {
+        width: 400px;
+        height: 400px;
+
+        object-fit: contain;
+
+        padding-right: 0;
+    }
+
+    /* SIDE PLANETS */
+
+    .side {
+        width: 200px;
+        height: 200px;
+
+        opacity: 0.3;
+
+        top: 60%;
+    }
+
+    .left {
+        left: -50px;
+    }
+
+    .right {
+        right: -50px;
+    }
+
+    /* FLOAT MOBILE */
+
+    @keyframes floating {
+
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    .main-planet-container {
+        animation: floating 4s ease-in-out infinite;
+    }
+}

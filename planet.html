@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System - Scrollytelling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="/GioiThieu.html">Trang chủ</a>
+            <a href="#explore-planets">Hành tinh</a>
+            <a href="/planet.html">Khám phá</a>
+        </nav>
+
+        <img id="leftPlanet" class="side left" src="">
+        <img id="rightPlanet" class="side right" src="">
+
+        <div class="content">
+            <h1 id="planetName"></h1>
+
+            <div class="info">
+                <div>
+                    <span>Đường kính</span>
+                    <h3 id="diameter"></h3>
+                </div>
+                <div>
+                    <span>Diện tích bề mặt</span>
+                    <h3 id="surface"></h3>
+                </div>
+                <div>
+                    <span>Thể tích</span>
+                    <h3 id="volume"></h3>
+                </div>
+                <div>
+                    <span>Khối lượng</span>
+                    <h3 id="mass"></h3>
+                </div>
+            </div>
+
+            <div class="main-planet-container">
+                <a  id="planetLink" href="#">
+                <img id="mainPlanet" class="main-planet" src="">
+                </a>
+            </div>
+        </div>
+
+        <button class="btn-nav prev" onclick="prevPlanet()"></button>
+        <button class="btn-nav next" onclick="nextPlanet()"></button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html> 
